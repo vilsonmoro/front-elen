@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cadastro de venda</title>
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/cadastrovenda.css">
+</head>
+
+<body>
+	<div class="navbar">
+        <a href="./index.html"><img src="/images/logo.jpg" alt="Logo"/></a>
+        <div class="icons">
+            <a href="./buscarusuario.html" title="Usuário">
+                <span class="material-icons">account_circle</span>
+            </a>
+            <a href="#" onclick="confirmLogout(event)" title="Sair"><span class="material-icons">logout</span></a>
+        </div>
+    </div>
+	<div class="sidebar">
+        <ul>
+            <li><a href="./buscarcliente.html" title="Cliente"><span class="material-icons">people</span></a></li>
+            <li><a href="./buscarproduto.html" title="Produto"><span class="material-icons">checkroom</span></a></li>
+            <li><a href="./buscarpedido.html" title="Pedido"><span class="material-icons">list_alt</span></a></li>
+            <li><a href="./buscarvenda.html" title="Venda"><span class="material-icons">attach_money</span></a></li>
+            <li><a href="./relatorio.html" title="Relatório"><span class="material-icons">assignment</span></a></li>
+            <li><a href="./buscarvendedor.html" title="Vendedor"><span class="material-icons">support_agent</span></a></li>
+        </ul>
+    </div>
+	<div class="content">
+		<h1>Cadastro de Venda</h1>
+		<div class="row">
+			<div class="col s12">
+				<ul class="tabs">
+					<li class="tab col s3"><a class="active" href="#venda">Venda</a></li>
+					<li class="tab col s3"><a href="#produto">Produto</a></li>
+					<li class="tab col s3"><a href="#pagamento">Pagamento</a></li>
+				</ul>
+			</div>
+			<div id="venda" class="col s12">
+				<div class="center-inputs">
+					<div class="input-field">
+						<input type="date" id="data" required>
+						<label for="data">Data *</label>
+					</div>
+					<div class="input-field input-with-icon-right">
+						<input type="text" id="cliente" autocomplete="off">
+						<div class="suggestions" id="cliente-suggestions"></div>
+						<label for="cliente">Cliente</label>
+						<i class="material-icons">search</i>
+					</div>
+					<div class="input-field input-with-icon-right">
+						<input type="text" id="pedido" autocomplete="off">
+						<div class="suggestions" id="pedido-suggestions"></div>
+						<label for="pedido">Pedido</label>
+						<i class="material-icons">search</i>
+					</div>
+					<div class="input-field">
+						<input type="text" id="observacao">
+						<label for="observacao">Observações</label>
+					</div>
+				</div>
+			</div>
+			<div id="produto" class="col s12">
+				<div class="center-inputs">
+					<button id="addRegistro" class="btn">Adicionar Produto</button>
+				</div>
+				<table>
+					<thead>
+						<tr>
+							<th>Nome</th>
+							<th>Quantidade</th>
+							<th>Tamanho</th>
+							<th>Valor Unitário</th>
+							<th>Desconto</th>
+							<th>Valor Total</th>
+							<th>Observação</th>
+							<th>Ações</th>
+						</tr>
+					</thead>
+					<tbody id="tabelaRegistros">
+						<!-- Os registros serão inseridos aqui -->
+					</tbody>
+				</table>
+				<div id="popup" class="popup">
+					<div class="popup-content">
+						<span class="close-btn">&times;</span>
+						<h2>Item</h2>
+						<form id="produtoForm">
+							<div class="input-field">
+								<input type="text" id="nome" autocomplete="off" required>
+								<div class="suggestions" id="nome-suggestions"></div>
+								<label for="nome">Nome</label>
+							</div>
+							<div class="input-field">
+								<input type="number" id="quantidade" required>
+								<label for="quantidade">Quantidade *</label>
+							</div>
+							<div class="input-field">
+								<input type="text" id="tamanho" required>
+								<label for="tamanho">Tamanho *</label>
+							</div>
+							<div class="input-field">
+								<input type="number" id="valor" required>
+								<label for="valor">Valor Unitário *</label>
+							</div>
+							<div class="input-field">
+								<input type="number" id="desconto">
+								<label for="desconto">Desconto</label>
+							</div>
+							<div class="input-field">
+								<textarea id="observacaopopup" class="materialize-textarea"></textarea>
+								<label for="observacao">Observação</label>
+							</div>
+							<div class="button-wrapper">
+							<button type="submit" id="salvarPopup" class="btn">Salvar</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div id="pagamento" class="col s12">
+				<div class="center-inputs">
+					<div class="input-field">
+						<input type="text" id="frete">
+						<label for="valortot">Frete</label>
+					</div>
+					<div class="input-field">
+						<select id="tipoentrega" required>
+							<option value="" disabled selected>Escolha o tipo de entrega</option>
+							<option value="carro">Carro</option>
+							<option value="sedex">SEDEX</option>
+							<option value="retirada">Retirada</option>
+							<option value="transportadora">Transportadora</option>
+						</select>
+						<label for="status">Tipo de entrega *</label>
+					</div>
+					<div class="input-field">
+						<input type="text" id="valortotal" required>
+						<label for="valortot">Valor total *</label>
+					</div>
+					<div class="input-field input-with-icon-right">
+						<input type="text" id="vendedor" autocomplete="off">
+						<div class="suggestions" id="vendedor-suggestions"></div>
+						<label for="vendedor">Vendedor</label>
+						<i class="material-icons">search</i>
+					</div>
+					<div class="input-field">
+						<input type="text" id="comissao" required>
+						<label for="comissao">Comissão</label>
+					</div>
+					<div class="input-field">
+						<select id="formapagamento" required>
+							<option value="" disabled selected>Escolha a forma de pagamento</option>
+							<option value="pix">Pix</option>
+							<option value="dinheiro">Dinheiro</option>
+							<option value="credito">Crédito</option>
+							<option value="debito">Débito</option>
+							<option value="ted">TED</option>
+						</select>
+						<label for="formapagamento">Forma de Pagamento *</label>
+					</div>
+					<div class="input-field">
+						<input type="number" id="valorentrada" required>
+						<label for="valorentrada">Valor de entrada *</label>
+					</div>
+					<div class="input-field">
+						<input type="number" id="valorrestante" required>
+						<label for="valorrestante">Valor restante</label>
+					</div>
+					<div class="input-field">
+						<input type="number" id="parcelas">
+						<label for="parcelas">Parcelas *</label>
+					</div>					
+					<button class="btn waves-effect waves-light" id ="BotCadastrar" type="submit">Cadastrar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script src="/js/cadastrovenda.js"></script>
+</body>
+
+</html>

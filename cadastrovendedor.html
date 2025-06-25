@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de vendedor</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/cadastrovendedor.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="./index.html"><img src="/images/logo.jpg" alt="Logo"/></a>
+        <div class="icons">
+            <a href="./buscarusuario.html" title="Usuário">
+                <span class="material-icons">account_circle</span>
+            </a>
+            <a href="#" onclick="confirmLogout(event)" title="Sair"><span class="material-icons">logout</span></a>
+        </div>
+    </div>
+    <div class="sidebar">
+        <ul>
+            <li><a href="./buscarcliente.html" title="Cliente"><span class="material-icons">people</span></a></li>
+            <li><a href="./buscarproduto.html" title="Produto"><span class="material-icons">checkroom</span></a></li>
+            <li><a href="./buscarpedido.html" title="Pedido"><span class="material-icons">list_alt</span></a></li>
+            <li><a href="./buscarvenda.html" title="Venda"><span class="material-icons">attach_money</span></a></li>
+            <li><a href="./relatorio.html" title="Relatório"><span class="material-icons">assignment</span></a></li>
+            <li><a href="./buscarvendedor.html" title="Vendedor"><span class="material-icons">support_agent</span></a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h1>Cadastro de Vendedor</h1>
+        <div class="input-field">
+            <input type="text" id="nome" required>
+            <label for="nome">Nome *</label>
+        </div>
+        <div class="input-field">
+            <input type="text" id="sobrenome">
+            <label for="sobrenome">Sobrenome</label>
+        </div>
+        <div class="input-field">
+            <input type="email" id="email">
+            <label for="email">E-mail</label>
+        </div>
+        <div class="input-field">
+            <input type="number" id="desconto" min="0" max="100" required>
+            <label for="desconto">Desconto (%) *</label>
+        </div>
+        <div class="input-field">
+            <select id="status" required>
+                <option value="" disabled selected>Escolha seu status</option>
+                <option value="ativo">Ativo</option>
+                <option value="desativado">Desativado</option>
+            </select>
+            <label for="status">Status *</label>
+        </div>
+        <div class="input-field">
+            <input type="text" id="observacoes">
+            <label for="observacoes">Observações</label>
+        </div>
+        <button class="btn waves-effect waves-light" type="submit">Cadastrar</button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="/js/cadastrovendedor.js"></script>
+</body>
+</html>

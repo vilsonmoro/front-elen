@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de produto</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/cadastroproduto.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="./index.html"><img src="/images/logo.jpg" alt="Logo"/></a>
+        <div class="icons">
+            <a href="./buscarusuario.html" title="Usuário">
+                <span class="material-icons">account_circle</span>
+            </a>
+            <a href="#" onclick="confirmLogout(event)" title="Sair"><span class="material-icons">logout</span></a>
+        </div>
+    </div>
+
+   <div class="sidebar">
+        <ul>
+            <li><a href="./buscarcliente.html" title="Cliente"><span class="material-icons">people</span></a></li>
+            <li><a href="./buscarproduto.html" title="Produto"><span class="material-icons">checkroom</span></a></li>
+            <li><a href="./buscarpedido.html" title="Pedido"><span class="material-icons">list_alt</span></a></li>
+            <li><a href="./buscarvenda.html" title="Venda"><span class="material-icons">attach_money</span></a></li>
+            <li><a href="./relatorio.html" title="Relatório"><span class="material-icons">assignment</span></a></li>
+            <li><a href="./buscarvendedor.html" title="Vendedor"><span class="material-icons">support_agent</span></a></li>
+        </ul>
+    </div>
+	<div class="content">
+		<h1>Cadastro de Produto</h1>
+		<div class="input-field">
+			<input type="text" id="nome" required>
+			<label for="nome">Nome *</label>
+		</div>
+		<div class="row">
+			<div class="col s12">
+				<ul class="tabs">
+					<li class="tab col s3"><a class="active" href="#confeccao">Confecção</a></li>
+					<li class="tab col s3"><a href="#detalhes">Detalhes</a></li>
+					<li class="tab col s3"><a href="#finalizacao">Finalização</a></li>
+					<li class="tab col s3"><a href="#valores">Valores</a></li>
+				</ul>
+			</div>
+			<div id="confeccao" class="col s12">
+				<div class="center-inputs">
+					<div class="input-field">
+						<input type="number" id="peso" step="0.0001" oninput="calcularCusto()">
+						<label for="peso">Peso</label>
+					</div>
+					<div class="input-field">
+						<input type="number" step="0.0001" id="modelagem" oninput="calcularCusto()">
+						<label for="modelagem">Modelagem</label>
+					</div>
+					<div class="input-field">
+						<input type="number" step="0.0001" id="desenvolvimento" oninput="calcularCusto()">
+						<label for="desenvolvimento">Desenvolvimento</label>
+					</div>
+					<div class="input-field">
+						<input type="number" step="0.0001" id="corte" oninput="calcularCusto()">
+						<label for="corte">Corte</label>
+					</div>
+					<div class="input-field">
+						<input type="number" step="0.0001" id="malha" oninput="calcularCusto()">
+						<label for="malha">Malha</label>
+					</div>
+					<div class="input-field">
+						<input type="number" step="0.0001" id="costura" oninput="calcularCusto()">
+						<label for="costura">Costura</label>
+					</div>
+				</div>
+			</div>
+			<div id="detalhes" class="col s12">
+				<div class="center-inputs">
+					<div class="input-field">
+						<input type="number" step="0.0001" id="etqmarca" oninput="calcularCusto()">
+						<label for="etqmarca">Etiqueta da marca</label>
+					</div>
+					<div class="input-field">
+						<input type="number" step="0.0001" id="etqcomp" oninput="calcularCusto()">
+						<label for="etqcomp">Etiqueta de composição</label>
+					</div>
+					<div class="input-field">
+						<input type="number" step="0.0001" id="tag" oninput="calcularCusto()">
+						<label for="tag">Tag</label>
+					</div>
+					<div class="input-field">
+						<input type="number" step="0.0001" id="refil" oninput="calcularCusto()">
+						<label for="refil">Refil de pistola</label>
+					</div>
+					<div class="input-field">
+						<input type="number" step="0.0001" id="elastico" oninput="calcularCusto()">
+						<label for="elastico">Elástico 40mm e 20mm</label>
+					</div>
+				</div>
+			</div>
+			<div id="finalizacao" class="col s12">
+				<div class="center-inputs">
+					<div class="input-field">
+						<input type="number" step="0.0001" id="saco" oninput="calcularCusto()">
+						<label for="saco">Saco plástico</label>
+					</div>
+					<div class="input-field">
+						<input type="number" step="0.0001" id="fita" oninput="calcularCusto()">
+						<label for="fita">Fita durex</label>
+					</div>
+					<div class="input-field">
+						<input type="number" step="0.0001" id="embalagem" oninput="calcularCusto()">
+						<label for="embalagem">Embalagem</label>
+					</div>
+					<div class="input-field">
+						<input type="number" step="0.0001" id="deslocamento" oninput="calcularCusto()">
+						<label for="deslocamento">Deslocamento</label>
+					</div>
+				</div>
+			</div>
+			<div id="valores" class="col s12">
+				<div class="center-inputs">
+					<div class="input-field">
+						<input type="number" step="0.0001" id="custo" readonly>
+						<label for="custo">Custo do produto *</label>
+					</div>
+					<div class="input-field">
+						<input type="number" id="fatormult" onblur="calcularValorVarejoEAtacado()">
+						<label for="fatormult">Fator de multiplicação *</label>
+					</div>
+					<div class="input-field">
+						<input type="text" id="valorvarejo">
+						<label for="valorvarejo">Valor varejo *</label>
+					</div>
+					<div class="input-field">
+						<input type="text" id="valoratacado">
+						<label for="valoratacado">Valor atacado *</label>
+					</div>
+					<button id="cadastrarBtn" class="btn waves-effect waves-light" type="submit">Cadastrar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="/js/cadastroproduto.js"></script>
+</body>
+</html>

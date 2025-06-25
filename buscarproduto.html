@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa de produtos</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/buscarproduto.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="./index.html"><img src="/images/logo.jpg" alt="Logo"/></a>
+        <div class="icons">
+            <a href="./buscarusuario.html" title="Usuário">
+                <span class="material-icons">account_circle</span>
+            </a>
+            <a href="#" onclick="confirmLogout(event)" title="Sair"><span class="material-icons">logout</span></a>
+        </div>
+    </div>
+
+   <div class="sidebar">
+        <ul>
+            <li><a href="./buscarcliente.html" title="Cliente"><span class="material-icons">people</span></a></li>
+            <li><a href="./buscarproduto.html" title="Produto"><span class="material-icons">checkroom</span></a></li>
+            <li><a href="./buscarpedido.html" title="Pedido"><span class="material-icons">list_alt</span></a></li>
+            <li><a href="./buscarvenda.html" title="Venda"><span class="material-icons">attach_money</span></a></li>
+            <li><a href="./relatorio.html" title="Relatório"><span class="material-icons">assignment</span></a></li>
+            <li><a href="./buscarvendedor.html" title="Vendedor"><span class="material-icons">support_agent</span></a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h1>Pesquisa de Produtos</h1>	
+		<div class="input-field">
+            <input type="text" id="codigo" required>
+            <label for="codigo">Código do Produto</label>
+        </div>
+		<div class="input-field">
+            <input type="text" id="nome" required>
+            <label for="nome">Nome</label>
+        </div>
+        <div class="button-container">
+            <button class="btn waves-effect waves-light" type="button" onclick="searchProduto()">Pesquisar</button>
+            <button class="btn waves-effect waves-light" type="button" onclick="clearSearch()">Limpar</button>
+			<button class="btn waves-effect waves-light" type="button" onclick="window.location.href='/cadastroproduto'">Cadastrar Produto</button>
+        </div>
+        <table id="resultsTable">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nome</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Resultados da pesquisa serão inseridos aqui -->
+            </tbody>
+        </table>
+        <div class="pagination">
+            <button id="prevButton" onclick="changePage(-1)" disabled>Anterior</button>
+            <span id="pageInfo">Página 1</span>
+            <button id="nextButton" onclick="changePage(1)">Próximo</button>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="/js/buscarproduto.js"></script>
+</body>
+</html>
