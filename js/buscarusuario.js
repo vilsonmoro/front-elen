@@ -1,4 +1,4 @@
-import { BASE_URL } from './url_base'
+const BASE_URL = 'https://projeto-elen-veiga.onrender.com';
 let usuariosPaginados = [];
 let currentPage = 1;
 const itemsPerPage = 10;

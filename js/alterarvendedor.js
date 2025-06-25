@@ -1,4 +1,4 @@
-import { BASE_URL } from './url_base'
+const BASE_URL = 'https://projeto-elen-veiga.onrender.com';
 
 document.addEventListener('DOMContentLoaded', function() {
 	const elems = document.querySelectorAll('select');

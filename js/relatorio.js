@@ -1,4 +1,4 @@
-import { BASE_URL } from './url_base'
+
 document.addEventListener('DOMContentLoaded', function() {
     M.AutoInit();
 

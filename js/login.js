@@ -1,4 +1,4 @@
-import { BASE_URL } from './url_base'
+const BASE_URL = 'https://projeto-elen-veiga.onrender.com';
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('.formLogin');
     form.addEventListener('submit', function (event) {
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 localStorage.setItem('userId', userId);
 
                 // Redirecionar para a página inicial
-                window.location.href = "./paginainicial.html"; // ou qualquer página desejada
+                window.location.href = "./index.html"; // ou qualquer página desejada
             } else {
                 M.toast({ html: `Erro: Token não recebido.`, classes: 'red' });
             }
