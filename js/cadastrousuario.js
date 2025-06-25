@@ -69,7 +69,7 @@ document.querySelector('.btn').addEventListener('click', async function(e) {
         const response = await fetch(`${BASE_URL}/usuario`, {
             method: 'POST',
             headers: {
-                'Authorization': `Bearer ${token}`,
+               // 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(novoUsuario),

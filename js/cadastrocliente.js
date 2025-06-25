@@ -50,10 +50,10 @@ document.getElementById('cadastrarBtn').addEventListener('click', async function
     const token = localStorage.getItem('token');
     const userId = localStorage.getItem('userId');
 
-    if (!token || !userId) {
+   /* if (!token || !userId) {
         M.toast({ html: 'Usuário não autenticado!', classes: 'red darken-2' });
         return;
-    }
+    }*/
 
     const formaPagamentoMap = {
         'dinheiro': 'DINHEIRO',
