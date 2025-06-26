@@ -152,6 +152,7 @@ async function enviarProduto() {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(produto),
+            credentials: 'include'
         });
 
         if (response.ok) {

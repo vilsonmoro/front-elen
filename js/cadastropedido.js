@@ -82,7 +82,8 @@ async function cadastrarPedido() {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json' 
       },
-      body: JSON.stringify(pedido)
+      body: JSON.stringify(pedido),
+      credentials: 'include'
     });
 
     if (!response.ok) {
@@ -331,7 +332,8 @@ function setupProdutoAutocomplete(inputId, url, suggestionId, displayKey) {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
-        }
+        },
+        credentials: 'include'
       });
 
       if (!response.ok) throw new Error('Erro ao buscar produtos');
@@ -378,7 +380,7 @@ function setupClienteAutocomplete(inputId, url, suggestionId, displayKey) {
     try {
       const token = localStorage.getItem('token');
       const response = await fetch(`${url}?nome=${encodeURIComponent(query)}`, {
-        headers: { 'Authorization': `Bearer ${token}` }
+        headers: { 'Authorization': `Bearer ${token}` }, credentials: 'include'
       });
       const data = await response.json();
 
@@ -462,7 +464,8 @@ async function enviarProdutosDoPedido() {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(produtosPayload)
+      body: JSON.stringify(produtosPayload),
+      credentials: 'include'
     });
 
     if (!response.ok) {

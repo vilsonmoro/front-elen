@@ -114,7 +114,8 @@ document.querySelector('.btn').addEventListener('click', async function(e) {
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(usuarioAtualizado)
+            body: JSON.stringify(usuarioAtualizado),
+            credentials: 'include'
         });
 
         if (response.ok) {

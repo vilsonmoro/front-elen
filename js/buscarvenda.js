@@ -34,7 +34,7 @@ async function searchVenda() {
             headers: {
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'
-            }
+            },credentials: 'include'
         });
 
         if (!response.ok) {
@@ -122,7 +122,8 @@ async function editvenda(codigo) {
             headers: {
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'
-            }
+            },
+            credentials: 'include'
         });
 
         if (!response.ok) {

@@ -129,7 +129,8 @@ async function editarVenda() {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(venda)
+      body: JSON.stringify(venda),
+      credentials: 'include'
     });
 
     if (!response.ok) {
@@ -331,7 +332,8 @@ function setupProdutoAutocomplete(inputId, url, suggestionId, displayKey) {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
-        }
+        },
+        credentials: 'include'
       });
 
       if (!response.ok) throw new Error('Erro ao buscar produtos');
@@ -378,7 +380,7 @@ function setupClienteAutocomplete(inputId, url, suggestionId, displayKey) {
     try {
       const token = localStorage.getItem('token');
       const response = await fetch(`${url}?nome=${encodeURIComponent(query)}`, {
-        headers: { 'Authorization': `Bearer ${token}` }
+        headers: { 'Authorization': `Bearer ${token}` }, credentials: 'include'
       });
       const data = await response.json();
 
@@ -435,7 +437,7 @@ function setupVendedorAutocomplete(inputId, url, suggestionId, displayKey) {
     try {
       const token = localStorage.getItem('token');
       const response = await fetch(`${url}?nome=${encodeURIComponent(query)}`, {
-        headers: { 'Authorization': `Bearer ${token}` }
+        headers: { 'Authorization': `Bearer ${token}` }, credentials: 'include'
       });
       const data = await response.json();
 
@@ -477,7 +479,7 @@ function setupPedidoAutocomplete(inputId, url, suggestionId, displayKey) {
     try {
       const token = localStorage.getItem('token');
       const response = await fetch(`${url}?descricao=${encodeURIComponent(query)}`, {
-        headers: { 'Authorization': `Bearer ${token}` }
+        headers: { 'Authorization': `Bearer ${token}` }, credentials: 'include'
       });
 
       const data = await response.json();
@@ -561,7 +563,8 @@ function carregarProdutosDaVenda(idVenda, token) {
         headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'
-        }
+        },
+        credentials: 'include'
     })
     .then(res => {
         if (!res.ok) throw new Error('Erro ao buscar produtos da venda');
@@ -664,7 +667,8 @@ async function enviarProdutosDaVenda() {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${token}`
-      }
+      }, 
+      credentials: 'include'
     });
 
     if (!getResponse.ok) {
@@ -696,7 +700,8 @@ async function enviarProdutosDaVenda() {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(produtosParaCriar)
+        body: JSON.stringify(produtosParaCriar),
+        credentials: 'include'
       });
 
       if (!postResponse.ok) {
@@ -710,7 +715,8 @@ async function enviarProdutosDaVenda() {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
-        }
+        },
+        credentials: 'include'
       });
 
       if (!deleteResponse.ok) {
@@ -767,7 +773,8 @@ function preencherFormularioComVendaParaEditar() {
       headers: {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json'
-      }
+      },
+      credentials: 'include'
     })
     .then(res => {
       if (!res.ok) throw new Error('Erro ao buscar produtos da venda');

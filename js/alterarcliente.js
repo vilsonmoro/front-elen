@@ -90,7 +90,8 @@ document.getElementById('salvarBtn').addEventListener('click', async function (e
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(clienteEditado)
+            body: JSON.stringify(clienteEditado),
+            credentials: 'include'
         });
 
         const responseBody = await response.json();

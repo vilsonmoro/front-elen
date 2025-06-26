@@ -53,7 +53,8 @@ document.addEventListener('DOMContentLoaded', function () {
             headers: {
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'
-            }
+            },
+            credentials: 'include'
         })
         .then(res => {
             if (!res.ok) throw new Error('Erro ao buscar produtos do pedido');
@@ -453,7 +454,8 @@ function setupProdutoAutocomplete(inputId, url, suggestionId, displayKey) {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
-        }
+        },
+        credentials: 'include'
       });
 
       if (!response.ok) throw new Error('Erro ao buscar produtos');
@@ -586,7 +588,8 @@ async function enviarProdutosDoPedido() {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${token}`
-      }
+      },
+      credentials: 'include'
     });
 
     if (!getResponse.ok) {
@@ -621,7 +624,8 @@ async function enviarProdutosDoPedido() {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(produtosParaCriar)
+        body: JSON.stringify(produtosParaCriar),
+        credentials: 'include'
       });
 
       if (!postResponse.ok) {
@@ -636,7 +640,8 @@ async function enviarProdutosDoPedido() {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
-        }
+        },
+        credentials: 'include'
       });
 
       if (!deleteResponse.ok) {

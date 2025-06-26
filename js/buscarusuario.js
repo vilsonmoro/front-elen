@@ -1,4 +1,5 @@
-const BASE_URL = 'https://projeto-elen-veiga.onrender.com';
+//const BASE_URL = 'https://projeto-elen-veiga.onrender.com';
+const BASE_URL = 'http://localhost:8080';
 let usuariosPaginados = [];
 let currentPage = 1;
 const itemsPerPage = 10;
@@ -28,8 +29,9 @@ async function searchUsers() {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`,
-                'Content-Type': 'application/json'
-            }
+                'Content-Type': 'application/json'                
+            },
+            credentials: 'include'
         });
 
         if (!response.ok) {
@@ -106,7 +108,8 @@ async function editusuario(codigo) {
             headers: {
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'
-            }
+            },
+            credentials: 'include'
         });
 
         if (!response.ok) {
@@ -137,7 +140,8 @@ async function confirmDelete(id) {
             headers: {
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'
-            }
+            },
+            credentials: 'include'
         });
 
         if (response.ok) {

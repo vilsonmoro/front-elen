@@ -119,7 +119,8 @@ document.querySelector('.btn').addEventListener('click', async function(e) {
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(vendedorAtualizado)
+            body: JSON.stringify(vendedorAtualizado),
+            credentials: 'include'
         });
 
         if (response.ok) {

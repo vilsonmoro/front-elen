@@ -1,4 +1,5 @@
 const BASE_URL = 'https://projeto-elen-veiga.onrender.com';
+
 function confirmLogout(event) {
     event.preventDefault();
     const confirmed = confirm("Você deseja realmente sair da aplicação?");
@@ -64,7 +65,7 @@ document.querySelector('.btn').addEventListener('click', async function(e) {
     };
 
     try {
-        const token = localStorage.getItem('token');
+        //const token = localStorage.getItem('token');
 
         const response = await fetch(`${BASE_URL}/usuario`, {
             method: 'POST',
@@ -73,6 +74,7 @@ document.querySelector('.btn').addEventListener('click', async function(e) {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(novoUsuario),
+            credentials: 'include'
         });
 
         if (response.ok) {

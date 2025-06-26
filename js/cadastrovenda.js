@@ -113,7 +113,8 @@ async function cadastrarVenda() {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(venda)
+      body: JSON.stringify(venda),
+      credentials: 'include'
     });
 
     if (!response.ok) {
@@ -317,7 +318,8 @@ function setupProdutoAutocomplete(inputId, url, suggestionId, displayKey) {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
-        }
+        },
+        credentials: 'include'
       });
 
       if (!response.ok) throw new Error('Erro ao buscar produtos');
@@ -421,7 +423,7 @@ function setupVendedorAutocomplete(inputId, url, suggestionId, displayKey) {
     try {
       const token = localStorage.getItem('token');
       const response = await fetch(`${url}?nome=${encodeURIComponent(query)}`, {
-        headers: { 'Authorization': `Bearer ${token}` }
+        headers: { 'Authorization': `Bearer ${token}` }, credentials: 'include'
       });
       const data = await response.json();
 
@@ -463,7 +465,7 @@ function setupPedidoAutocomplete(inputId, url, suggestionId, displayKey) {
     try {
       const token = localStorage.getItem('token');
       const response = await fetch(`${url}?descricao=${encodeURIComponent(query)}`, {
-        headers: { 'Authorization': `Bearer ${token}` }
+        headers: { 'Authorization': `Bearer ${token}` }, credentials: 'include'
       });
 
       const data = await response.json();
@@ -547,7 +549,8 @@ function carregarProdutosDoPedido(idPedido, token) {
         headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'
-        }
+        }, 
+        credentials: 'include'
     })
     .then(res => {
         if (!res.ok) throw new Error('Erro ao buscar produtos do pedido');
@@ -631,7 +634,8 @@ async function enviarProdutosDaVenda() {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(produtos)
+      body: JSON.stringify(produtos),
+      credentials: 'include'
     });
 
     if (!response.ok) {

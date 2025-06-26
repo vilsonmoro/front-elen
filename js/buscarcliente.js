@@ -22,13 +22,14 @@ async function searchCliente() {
 	if (codigo) params.append('id', codigo);
 	if (nome) params.append('nome', nome); 
 
-	try {
+	try {        
 		const response = await fetch(`${BASE_URL}/cliente/buscar?${params.toString()}`, {
 			method: 'GET',
 			headers: {
 				'Authorization': `Bearer ${token}`,
 				'Content-Type': 'application/json'
-			}
+			},
+            credentials: 'include'
 		});
 
 		if (!response.ok) {
@@ -118,14 +119,15 @@ function clearSearch() {
 
 async function editcliente(codigo) {
 	const token = localStorage.getItem('token');
-
+    
     try {
         const response = await fetch(`${BASE_URL}/cliente/${codigo}`, {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'
-            }
+            },
+            credentials: 'include'
         });
 
         if (!response.ok) {
@@ -157,7 +159,8 @@ async function confirmDelete(codigo) {
             headers: {
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'
-            }
+            },
+            credentials: 'include'
         });
 
         if (response.ok) {

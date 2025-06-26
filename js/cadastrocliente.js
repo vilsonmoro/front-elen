@@ -1,4 +1,5 @@
 const BASE_URL = 'https://projeto-elen-veiga.onrender.com';
+
 document.addEventListener('DOMContentLoaded', function () {
     const elems = document.querySelectorAll('select');
     M.FormSelect.init(elems);
@@ -83,7 +84,8 @@ document.getElementById('cadastrarBtn').addEventListener('click', async function
         tipo_entrega: tipoEntregaMap[tipoEntregaInput],
         forma_pagamento: formaPagamentoMap[formaPagamentoInput]
     };
-
+console.log(BASE_URL)
+console.log(clienteData)
     try {
         const response = await fetch(`${BASE_URL}/cliente`, {
             method: 'POST',
@@ -91,7 +93,8 @@ document.getElementById('cadastrarBtn').addEventListener('click', async function
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             },
-            body: JSON.stringify(clienteData)
+            body: JSON.stringify(clienteData),
+            credentials: 'include'
         });
 
         if (!response.ok) {
